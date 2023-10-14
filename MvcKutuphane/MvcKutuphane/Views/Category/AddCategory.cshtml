@@ -1,0 +1,29 @@
+﻿@model MvcKutuphane.Models.Entity.KATEGORI
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/Layaout.cshtml";
+}
+<style>
+    #strip {
+        width: 100%;
+        height: 40px;
+        padding: 8px;
+        background: #d4d4d4;
+        color: black;
+        text-align: center;
+        font-size: 18px
+    }
+</style>
+<br />
+<div id="strip">Kategori Ekleme Sayfası</div>
+<br />
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Kategori Adı:</label>
+        <input type="text" class="form-control" name="AD" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-success" id="btn1" style="width:100%">Kategori Ekle</button>
+    </div>
+</form>
+

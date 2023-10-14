@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MvcKutuphaneModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CEZALAR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UYE" Type="int" />
+    <Property Name="BASLANGIC" Type="smalldatetime" />
+    <Property Name="BITIS" Type="smalldatetime" />
+    <Property Name="PARA" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="HAREKET" Type="int" />
+  </EntityType>
+  <EntityType Name="HAREKET">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KITAP" Type="int" />
+    <Property Name="UYE" Type="int" />
+    <Property Name="PERSONEL" Type="int" />
+    <Property Name="ALISTARIH" Type="smalldatetime" />
+    <Property Name="IADETARIH" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="KASA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AY" Type="varchar" MaxLength="15" />
+    <Property Name="TUTAR" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="KATEGORI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KITAP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="250" />
+    <Property Name="KATEGORI" Type="tinyint" />
+    <Property Name="YAZAR" Type="int" />
+    <Property Name="BASIMYIL" Type="char" MaxLength="4" />
+    <Property Name="YAYINEVI" Type="varchar" MaxLength="200" />
+    <Property Name="SAYFA" Type="char" MaxLength="5" />
+    <Property Name="DURUM" Type="bit" />
+  </EntityType>
+  <EntityType Name="PERSONEL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PERSONEL" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UYELER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="250" />
+    <Property Name="SOYAD" Type="varchar" MaxLength="250" />
+    <Property Name="MAIL" Type="varchar" MaxLength="250" />
+    <Property Name="KULLANICIADI" Type="varchar" MaxLength="150" />
+    <Property Name="SIFRE" Type="varchar" MaxLength="50" />
+    <Property Name="FOTOGRAF" Type="varchar" MaxLength="250" />
+    <Property Name="TELEFON" Type="varchar" MaxLength="50" />
+    <Property Name="OKUL" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="YAZAR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="250" />
+    <Property Name="SOYAD" Type="varchar" MaxLength="250" />
+    <Property Name="DETAY" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK_CEZALAR_HAREKET">
+    <End Role="HAREKET" Type="Self.HAREKET" Multiplicity="0..1" />
+    <End Role="CEZALAR" Type="Self.CEZALAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HAREKET">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CEZALAR">
+        <PropertyRef Name="HAREKET" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CEZALAR_UYELER">
+    <End Role="UYELER" Type="Self.UYELER" Multiplicity="0..1" />
+    <End Role="CEZALAR" Type="Self.CEZALAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UYELER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CEZALAR">
+        <PropertyRef Name="UYE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HAREKET_KITAP">
+    <End Role="KITAP" Type="Self.KITAP" Multiplicity="0..1" />
+    <End Role="HAREKET" Type="Self.HAREKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KITAP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HAREKET">
+        <PropertyRef Name="KITAP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HAREKET_UYELER">
+    <End Role="UYELER" Type="Self.UYELER" Multiplicity="0..1" />
+    <End Role="HAREKET" Type="Self.HAREKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UYELER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HAREKET">
+        <PropertyRef Name="UYE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KITAP_KATEGORI">
+    <End Role="KATEGORI" Type="Self.KATEGORI" Multiplicity="0..1" />
+    <End Role="KITAP" Type="Self.KITAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KATEGORI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="KITAP">
+        <PropertyRef Name="KATEGORI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KITAP_YAZAR">
+    <End Role="YAZAR" Type="Self.YAZAR" Multiplicity="0..1" />
+    <End Role="KITAP" Type="Self.KITAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YAZAR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="KITAP">
+        <PropertyRef Name="YAZAR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MvcKutuphaneModel1StoreContainer">
+    <EntitySet Name="CEZALAR" EntityType="Self.CEZALAR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HAREKET" EntityType="Self.HAREKET" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KASA" EntityType="Self.KASA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KATEGORI" EntityType="Self.KATEGORI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KITAP" EntityType="Self.KITAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PERSONEL" EntityType="Self.PERSONEL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UYELER" EntityType="Self.UYELER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YAZAR" EntityType="Self.YAZAR" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CEZALAR_HAREKET" Association="Self.FK_CEZALAR_HAREKET">
+      <End Role="HAREKET" EntitySet="HAREKET" />
+      <End Role="CEZALAR" EntitySet="CEZALAR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CEZALAR_UYELER" Association="Self.FK_CEZALAR_UYELER">
+      <End Role="UYELER" EntitySet="UYELER" />
+      <End Role="CEZALAR" EntitySet="CEZALAR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HAREKET_KITAP" Association="Self.FK_HAREKET_KITAP">
+      <End Role="KITAP" EntitySet="KITAP" />
+      <End Role="HAREKET" EntitySet="HAREKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HAREKET_UYELER" Association="Self.FK_HAREKET_UYELER">
+      <End Role="UYELER" EntitySet="UYELER" />
+      <End Role="HAREKET" EntitySet="HAREKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KITAP_KATEGORI" Association="Self.FK_KITAP_KATEGORI">
+      <End Role="KATEGORI" EntitySet="KATEGORI" />
+      <End Role="KITAP" EntitySet="KITAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KITAP_YAZAR" Association="Self.FK_KITAP_YAZAR">
+      <End Role="YAZAR" EntitySet="YAZAR" />
+      <End Role="KITAP" EntitySet="KITAP" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

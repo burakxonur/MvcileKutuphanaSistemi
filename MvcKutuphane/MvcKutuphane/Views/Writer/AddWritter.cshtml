@@ -1,0 +1,38 @@
+﻿@model MvcKutuphane.Models.Entity.YAZAR
+@{
+    ViewBag.Title = "AddWritter";
+    Layout = "~/Views/Shared/Layaout.cshtml";
+}
+<style>
+    #strip {
+        width: 100%;
+        height: 40px;
+        padding: 8px;
+        background: #d4d4d4;
+        color: black;
+        text-align: center;
+        font-size: 18px
+    }
+</style>
+<br />
+<div id="strip">Yeni Yazar Ekleme Sayfası</div>
+<br />
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Yazar Adı:</label>
+        @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Yazar Soyadı:</label>
+        @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Yazar Detay:</label>
+        @Html.TextAreaFor(x => x.DETAY, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-success" id="btn1" style="width:100%">Yeni Yazar Ekle</button>
+    </div>
+</form>
+
+

@@ -1,0 +1,51 @@
+﻿@model MvcKutuphane.Models.Entity.KITAP
+@{
+    ViewBag.Title = "AddBooks";
+    Layout = "~/Views/Shared/Layaout.cshtml";
+}
+
+<style>
+    #strip {
+        width: 100%;
+        height: 40px;
+        padding: 8px;
+        background: #d4d4d4;
+        color: black;
+        text-align: center;
+        font-size: 18px
+    }
+</style>
+<br />
+<div id="strip">Yeni Kitap Ekleme Sayfası</div>
+<br />
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Kitap Adı:</label>
+        @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap Kategorisi:</label>
+        @Html.DropDownListFor(k => k.KATEGORI1.ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap Yazarı:</label>
+        @Html.DropDownListFor(k => k.YAZAR1.ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Basım Yılı:</label>
+        @Html.TextBoxFor(k => k.BASIMYIL, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Yayın Evi:</label>
+        @Html.TextBoxFor(k => k.YAYINEVI, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Sayfa Sayısı:</label>
+        @Html.TextBoxFor(k => k.SAYFA, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-success" id="btn1" style="width:100%">Kitap Ekle</button>
+    </div>
+</form>
+
+

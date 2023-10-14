@@ -1,0 +1,53 @@
+﻿@model MvcKutuphane.Models.Entity.KITAP
+@{
+    ViewBag.Title = "UpdateBook";
+    Layout = "~/Views/Shared/Layaout.cshtml";
+}
+<style>
+    #strip {
+        width: 100%;
+        height: 40px;
+        padding: 8px;
+        background: #d4d4d4;
+        color: black;
+        text-align: center;
+        font-size: 18px
+    }
+</style>
+
+@using (Html.BeginForm("BookUpdate", "Book", FormMethod.Post))
+{
+    <br />
+    <div id="strip">Kitap Güncelleme Sayfası</div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>KITAP ID :</label>
+        @*@Html.LabelFor(k => k.ID)*@
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+        <br />
+        @*@Html.LabelFor(k => k.AD)*@
+        <label> KITAP ADI : </label>
+        @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+        <br />
+        <label> KITAP  KATEGORSİ : </label>
+        @Html.DropDownListFor(k => k.KATEGORI1.ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        <br />
+        <label> KITAP YAZARI : </label>
+        @Html.DropDownListFor(k => k.YAZAR1.ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+        <br />
+        <label> KITAP BASIM YILI : </label>
+        @Html.TextBoxFor(k => k.BASIMYIL, new { @class = "form-control" })
+        <br />
+        <label> KITAP YAYINEVİ : </label>
+        @Html.TextBoxFor(k => k.YAYINEVI, new { @class = "form-control" })
+        <br />
+        <label> KITAP SAYFASI : </label>
+        @Html.TextBoxFor(k => k.SAYFA, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-warning" style="width:100%">Kitap Bilgilerini Güncelle</button>
+    </div>
+}
+
+

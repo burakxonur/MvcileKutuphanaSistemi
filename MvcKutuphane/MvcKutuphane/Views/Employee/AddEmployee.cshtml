@@ -1,0 +1,34 @@
+﻿@model MvcKutuphane.Models.Entity.PERSONEL
+@{
+    ViewBag.Title = "AddEmployee";
+    Layout = "~/Views/Shared/Layaout.cshtml";
+}
+
+<style>
+    #strip {
+        width: 100%;
+        height: 40px;
+        padding: 8px;
+        background: #d4d4d4;
+        color: black;
+        text-align: center;
+        font-size: 18px
+    }
+</style>
+<br />
+<div id="strip">Yeni Personel Ekleme Sayfası</div>
+<br />
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Personel Adı Soyadı:</label>
+        @*<input type="text" class="form-control" name="PERSONEL1" />*@
+        @Html.TextBoxFor(x => x.PERSONEL1, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.PERSONEL1, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-success" id="btn1" style="width:100%">Yeni Personel Ekle</button>
+    </div>
+</form>
+
+
+

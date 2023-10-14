@@ -1,0 +1,36 @@
+﻿@model MvcKutuphane.Models.Entity.KATEGORI
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/Shared/Layaout.cshtml";
+}
+<style>
+    #strip {
+        width: 100%;
+        height: 40px;
+        padding: 8px;
+        background: #d4d4d4;
+        color: black;
+        text-align: center;
+        font-size: 18px
+    }
+</style>
+
+@using (Html.BeginForm("CategoryUpdate", "Category", FormMethod.Post))
+{
+    <br />
+    <div id="strip">Kategori Güncelleme Sayfası</div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label> KATEGORİ ID :</label>
+        @*@Html.LabelFor(k => k.ID)*@
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+        <br />
+        @*@Html.LabelFor(k => k.AD)*@
+        <label> KATEGORİ ADI : </label>
+        @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-warning" style="width:100%">Güncelle</button>
+    </div>
+}

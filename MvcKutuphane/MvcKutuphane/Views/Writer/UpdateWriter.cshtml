@@ -1,0 +1,46 @@
+﻿@model MvcKutuphane.Models.Entity.YAZAR
+@{
+    ViewBag.Title = "UpdateWriter";
+    Layout = "~/Views/Shared/Layaout.cshtml";
+}
+
+<style>
+    #strip {
+        width: 100%;
+        height: 40px;
+        padding: 8px;
+        background: #d4d4d4;
+        color: black;
+        text-align: center;
+        font-size: 18px
+    }
+</style>
+
+@using (Html.BeginForm("WriterUpdate", "Writer", FormMethod.Post))
+{
+    <br />
+    <div id="strip">Yazar Güncelleme Sayfası</div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>YAZAR ID :</label>
+        @*@Html.LabelFor(k => k.ID)*@
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+        <br />
+        @*@Html.LabelFor(k => k.AD)*@
+        <label> YAZAR ADI : </label>
+        @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+        <br />
+        <label> YAZAR SOYADI : </label>
+        @Html.TextBoxFor(k => k.SOYAD, new { @class = "form-control" })
+        <br />
+        <label> YAZAR DETAYI : </label>
+        @Html.TextAreaFor(k => k.DETAY, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-warning" style="width:100%">Güncelle</button>
+    </div>
+}
+
+
+

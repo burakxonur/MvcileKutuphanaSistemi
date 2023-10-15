@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MvcKutuphaneModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MvcKutuphaneModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CEZALAR">
           <Key>
             <PropertyRef Name="ID" />
@@ -26,6 +26,8 @@
           <Property Name="PERSONEL" Type="int" />
           <Property Name="ALISTARIH" Type="smalldatetime" />
           <Property Name="IADETARIH" Type="smalldatetime" />
+          <Property Name="ISLEMDURUM" Type="bit" />
+          <Property Name="UYEGETIRTARIH" Type="smalldatetime" />
         </EntityType>
         <EntityType Name="KASA">
           <Key>
@@ -54,6 +56,7 @@
           <Property Name="YAYINEVI" Type="varchar" MaxLength="200" />
           <Property Name="SAYFA" Type="char" MaxLength="5" />
           <Property Name="DURUM" Type="bit" />
+          <Property Name="KITAPRESIM" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="PERSONEL">
           <Key>
@@ -131,6 +134,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_HAREKET_PERSONEL">
+          <End Role="PERSONEL" Type="Self.PERSONEL" Multiplicity="0..1" />
+          <End Role="HAREKET" Type="Self.HAREKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONEL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HAREKET">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_HAREKET_UYELER">
           <End Role="UYELER" Type="Self.UYELER" Multiplicity="0..1" />
           <End Role="HAREKET" Type="Self.HAREKET" Multiplicity="*" />
@@ -189,6 +204,10 @@
             <End Role="KITAP" EntitySet="KITAP" />
             <End Role="HAREKET" EntitySet="HAREKET" />
           </AssociationSet>
+          <AssociationSet Name="FK_HAREKET_PERSONEL" Association="Self.FK_HAREKET_PERSONEL">
+            <End Role="PERSONEL" EntitySet="PERSONEL" />
+            <End Role="HAREKET" EntitySet="HAREKET" />
+          </AssociationSet>
           <AssociationSet Name="FK_HAREKET_UYELER" Association="Self.FK_HAREKET_UYELER">
             <End Role="UYELER" EntitySet="UYELER" />
             <End Role="HAREKET" EntitySet="HAREKET" />
@@ -202,8 +221,7 @@
             <End Role="KITAP" EntitySet="KITAP" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MvcKutuphaneModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -233,6 +251,9 @@
           <NavigationProperty Name="CEZALAR" Relationship="Self.FK_CEZALAR_HAREKET" FromRole="HAREKET" ToRole="CEZALAR" />
           <NavigationProperty Name="KITAP1" Relationship="Self.FK_HAREKET_KITAP" FromRole="HAREKET" ToRole="KITAP" />
           <NavigationProperty Name="UYELER" Relationship="Self.FK_HAREKET_UYELER" FromRole="HAREKET" ToRole="UYELER" />
+          <NavigationProperty Name="PERSONEL1" Relationship="MvcKutuphaneModel1.FK_HAREKET_PERSONEL" FromRole="HAREKET" ToRole="PERSONEL" />
+          <Property Name="ISLEMDURUM" Type="Boolean" />
+          <Property Name="UYEGETIRTARIH" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="KASA">
           <Key>
@@ -265,6 +286,7 @@
           <NavigationProperty Name="HAREKET" Relationship="Self.FK_HAREKET_KITAP" FromRole="KITAP" ToRole="HAREKET" />
           <NavigationProperty Name="KATEGORI1" Relationship="Self.FK_KITAP_KATEGORI" FromRole="KITAP" ToRole="KATEGORI" />
           <NavigationProperty Name="YAZAR1" Relationship="Self.FK_KITAP_YAZAR" FromRole="KITAP" ToRole="YAZAR" />
+          <Property Name="KITAPRESIM" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PERSONEL">
           <Key>
@@ -272,6 +294,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PERSONEL1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="HAREKET" Relationship="MvcKutuphaneModel1.FK_HAREKET_PERSONEL" FromRole="PERSONEL" ToRole="HAREKET" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -415,7 +438,23 @@
             <End Role="YAZAR" EntitySet="YAZAR" />
             <End Role="KITAP" EntitySet="KITAP" />
           </AssociationSet>
+          <AssociationSet Name="FK_HAREKET_PERSONEL" Association="MvcKutuphaneModel1.FK_HAREKET_PERSONEL">
+            <End Role="PERSONEL" EntitySet="PERSONEL" />
+            <End Role="HAREKET" EntitySet="HAREKET" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_HAREKET_PERSONEL">
+          <End Type="MvcKutuphaneModel1.PERSONEL" Role="PERSONEL" Multiplicity="0..1" />
+          <End Type="MvcKutuphaneModel1.HAREKET" Role="HAREKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONEL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HAREKET">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -437,6 +476,8 @@
           <EntitySetMapping Name="HAREKET">
             <EntityTypeMapping TypeName="MvcKutuphaneModel1.HAREKET">
               <MappingFragment StoreEntitySet="HAREKET">
+                <ScalarProperty Name="UYEGETIRTARIH" ColumnName="UYEGETIRTARIH" />
+                <ScalarProperty Name="ISLEMDURUM" ColumnName="ISLEMDURUM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="KITAP" ColumnName="KITAP" />
                 <ScalarProperty Name="UYE" ColumnName="UYE" />
@@ -466,6 +507,7 @@
           <EntitySetMapping Name="KITAP">
             <EntityTypeMapping TypeName="MvcKutuphaneModel1.KITAP">
               <MappingFragment StoreEntitySet="KITAP">
+                <ScalarProperty Name="KITAPRESIM" ColumnName="KITAPRESIM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AD" ColumnName="AD" />
                 <ScalarProperty Name="KATEGORI" ColumnName="KATEGORI" />

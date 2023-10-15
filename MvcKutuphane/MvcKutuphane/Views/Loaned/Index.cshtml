@@ -1,0 +1,54 @@
+﻿@using MvcKutuphane.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model List<HAREKET>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layaout.cshtml";
+}
+
+<style>
+    #strip {
+        width: 100%;
+        height: 40px;
+        padding: 8px;
+        background: #d4d4d4;
+        color: black;
+        text-align: center;
+        font-size: 18px
+    }
+</style>
+<br />
+<div id="strip">Ödünç Kitap Listesi</div>
+<br />
+
+
+<table class="table table-active">
+    <tr>
+        <th>İşlem ID</th>
+        <th>Kitap Adı</th>
+        <th>Üye</th>
+        <th>Personel</th>
+        <th>Alış Tarihi</th>
+        <th>İade Tarihi</th>
+        <th>İade Al</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.KITAP1.AD</td>
+            <td>@item.UYELER.AD  @item.UYELER.SOYAD</td>
+            <td>@item.PERSONEL1.PERSONEL1</td>
+            <td>@Convert.ToDateTime(item.ALISTARIH).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(item.IADETARIH).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Loaned/LoanReturn/@item.ID" class="btn btn-secondary">Kitabı İade Al</a></td>
+        </tr>
+
+    }
+</table>
+
+<a href="/Loaned/Lending/" class="btn btn-success" style="width:100%">Ödünç Kitap Ver (Ekle)</a>
+
+
+

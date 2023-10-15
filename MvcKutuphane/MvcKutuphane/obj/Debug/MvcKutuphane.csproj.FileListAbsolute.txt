@@ -81,3 +81,7 @@ C:\Users\onurb\OneDrive\Masaüstü\KutuphaneSistemi\MvcileKutuphanaSistemi\MvcKu
 C:\Users\onurb\OneDrive\Masaüstü\KutuphaneSistemi\MvcileKutuphanaSistemi\MvcKutuphane\MvcKutuphane\obj\Debug\MvcKutuphane.csproj.CopyComplete
 C:\Users\onurb\OneDrive\Masaüstü\KutuphaneSistemi\MvcileKutuphanaSistemi\MvcKutuphane\MvcKutuphane\obj\Debug\MvcKutuphane.dll
 C:\Users\onurb\OneDrive\Masaüstü\KutuphaneSistemi\MvcileKutuphanaSistemi\MvcKutuphane\MvcKutuphane\obj\Debug\MvcKutuphane.pdb
+C:\Users\onurb\OneDrive\Masaüstü\KutuphaneSistemi\MvcileKutuphanaSistemi\MvcKutuphane\MvcKutuphane\bin\PagedList.dll
+C:\Users\onurb\OneDrive\Masaüstü\KutuphaneSistemi\MvcileKutuphanaSistemi\MvcKutuphane\MvcKutuphane\bin\PagedList.Mvc.dll
+C:\Users\onurb\OneDrive\Masaüstü\KutuphaneSistemi\MvcileKutuphanaSistemi\MvcKutuphane\MvcKutuphane\bin\PagedList.xml
+C:\Users\onurb\OneDrive\Masaüstü\KutuphaneSistemi\MvcileKutuphanaSistemi\MvcKutuphane\MvcKutuphane\bin\PagedList.Mvc.xml

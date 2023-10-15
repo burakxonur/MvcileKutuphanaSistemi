@@ -21,6 +21,8 @@
     <Property Name="PERSONEL" Type="int" />
     <Property Name="ALISTARIH" Type="smalldatetime" />
     <Property Name="IADETARIH" Type="smalldatetime" />
+    <Property Name="ISLEMDURUM" Type="bit" />
+    <Property Name="UYEGETIRTARIH" Type="smalldatetime" />
   </EntityType>
   <EntityType Name="KASA">
     <Key>
@@ -49,6 +51,7 @@
     <Property Name="YAYINEVI" Type="varchar" MaxLength="200" />
     <Property Name="SAYFA" Type="char" MaxLength="5" />
     <Property Name="DURUM" Type="bit" />
+    <Property Name="KITAPRESIM" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="PERSONEL">
     <Key>
@@ -126,6 +129,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_HAREKET_PERSONEL">
+    <End Role="PERSONEL" Type="Self.PERSONEL" Multiplicity="0..1" />
+    <End Role="HAREKET" Type="Self.HAREKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONEL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HAREKET">
+        <PropertyRef Name="PERSONEL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_HAREKET_UYELER">
     <End Role="UYELER" Type="Self.UYELER" Multiplicity="0..1" />
     <End Role="HAREKET" Type="Self.HAREKET" Multiplicity="*" />
@@ -182,6 +197,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_HAREKET_KITAP" Association="Self.FK_HAREKET_KITAP">
       <End Role="KITAP" EntitySet="KITAP" />
+      <End Role="HAREKET" EntitySet="HAREKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HAREKET_PERSONEL" Association="Self.FK_HAREKET_PERSONEL">
+      <End Role="PERSONEL" EntitySet="PERSONEL" />
       <End Role="HAREKET" EntitySet="HAREKET" />
     </AssociationSet>
     <AssociationSet Name="FK_HAREKET_UYELER" Association="Self.FK_HAREKET_UYELER">

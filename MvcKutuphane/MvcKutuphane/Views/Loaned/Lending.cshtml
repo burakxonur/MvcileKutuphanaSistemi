@@ -1,0 +1,49 @@
+﻿@model MvcKutuphane.Models.Entity.HAREKET
+@{
+    ViewBag.Title = "Lending";
+    Layout = "~/Views/Shared/Layaout.cshtml";
+}
+
+<style>
+    #strip {
+        width: 100%;
+        height: 40px;
+        padding: 8px;
+        background: #d4d4d4;
+        color: black;
+        text-align: center;
+        font-size: 18px
+    }
+</style>
+<br />
+<div id="strip">Kitap Ödünç Ver Sayfası</div>
+<br />
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Uye ID:</label>
+        @Html.TextBoxFor(k => k.UYE, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap ID:</label>
+        @Html.TextBoxFor(k => k.KITAP, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Personel ID:</label>
+        @Html.TextBoxFor(k => k.PERSONEL, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap Alış Tarihi:</label>
+        <input type="date" class="form-control" name="ALISTARIH" value="@DateTime.Now.ToShortDateString()" />
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap İade Tarihi:</label>
+        <input type="date" class="form-control" name="IADETARIH" value="@DateTime.Now.AddDays(7).ToShortDateString()"/>
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-success" id="btn1" style="width:100%">Kitap Ödünç Ver</button>
+        <input type="hidden"value="false" name="ISLEMDURUM"/>
+    </div>
+</form>
+
+
+

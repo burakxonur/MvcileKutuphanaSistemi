@@ -1,9 +1,11 @@
 ﻿using MvcKutuphane.Models.Entity;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace MvcKutuphane.Controllers
 {
@@ -88,6 +90,7 @@ namespace MvcKutuphane.Controllers
 			kitap.BASIMYIL = p.BASIMYIL;
 			kitap.SAYFA = p.SAYFA;
 			kitap.YAYINEVI = p.YAYINEVI;
+			kitap.DURUM = true;
 			var ktg = db.KATEGORI.Where(k => k.ID == p.KATEGORI1.ID).FirstOrDefault();
 			var yzr = db.YAZAR.Where(y => y.ID == p.YAZAR1.ID).FirstOrDefault();
 			kitap.KATEGORI = ktg.ID;

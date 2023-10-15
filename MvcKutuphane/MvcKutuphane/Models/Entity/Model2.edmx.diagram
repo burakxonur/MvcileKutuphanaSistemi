@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="MvcKutuphaneModel1.KASA" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MvcKutuphaneModel1.KATEGORI" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MvcKutuphaneModel1.KITAP" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="MvcKutuphaneModel1.PERSONEL" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcKutuphaneModel1.PERSONEL" Width="1.5" PointX="9.125" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MvcKutuphaneModel1.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MvcKutuphaneModel1.UYELER" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="MvcKutuphaneModel1.YAZAR" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
@@ -20,6 +20,7 @@
         <AssociationConnector Association="MvcKutuphaneModel1.FK_HAREKET_UYELER" ManuallyRouted="false" />
         <AssociationConnector Association="MvcKutuphaneModel1.FK_KITAP_KATEGORI" ManuallyRouted="false" />
         <AssociationConnector Association="MvcKutuphaneModel1.FK_KITAP_YAZAR" ManuallyRouted="false" />
+        <AssociationConnector Association="MvcKutuphaneModel1.FK_HAREKET_PERSONEL" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

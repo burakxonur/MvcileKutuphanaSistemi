@@ -103,5 +103,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="HAKKIMIZDA">
+      <EntityTypeMapping TypeName="MvcKutuphaneModel1.HAKKIMIZDA">
+        <MappingFragment StoreEntitySet="HAKKIMIZDA">
+          <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ILETISIM">
+      <EntityTypeMapping TypeName="MvcKutuphaneModel1.ILETISIM">
+        <MappingFragment StoreEntitySet="ILETISIM">
+          <ScalarProperty Name="MESAJ" ColumnName="MESAJ" />
+          <ScalarProperty Name="KONU" ColumnName="KONU" />
+          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

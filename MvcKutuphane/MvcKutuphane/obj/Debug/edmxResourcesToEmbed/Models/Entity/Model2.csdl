@@ -217,6 +217,8 @@
       <End Role="PERSONEL" EntitySet="PERSONEL" />
       <End Role="HAREKET" EntitySet="HAREKET" />
     </AssociationSet>
+    <EntitySet Name="HAKKIMIZDA" EntityType="MvcKutuphaneModel1.HAKKIMIZDA" />
+    <EntitySet Name="ILETISIM" EntityType="MvcKutuphaneModel1.ILETISIM" />
   </EntityContainer>
   <Association Name="FK_HAREKET_PERSONEL">
     <End Type="MvcKutuphaneModel1.PERSONEL" Role="PERSONEL" Multiplicity="0..1" />
@@ -230,4 +232,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="HAKKIMIZDA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ACIKLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ILETISIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AD" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="MAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="KONU" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MESAJ" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

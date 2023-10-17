@@ -28,9 +28,13 @@ namespace MvcKutuphane.Controllers
 			db.SaveChanges();
 			return RedirectToAction("Lending");
 		}
-		public ActionResult LoanReturn(int id)
+		public ActionResult LoanReturn(HAREKET p)
 		{
-			var odn = db.HAREKET.Find(id);
+			var odn = db.HAREKET.Find(p.ID);
+			DateTime d1 = DateTime.Parse(odn.IADETARIH.ToString());
+			DateTime d2 = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+			TimeSpan d3 = d2 - d1;
+			ViewBag.dgr = d3.TotalDays;
 			return View("LoanReturn", odn);
 		}
 		public ActionResult UpdateLoan(HAREKET p)

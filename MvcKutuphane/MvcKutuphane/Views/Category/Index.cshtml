@@ -19,7 +19,7 @@
 <div id="strip">Kategori Listesi</div>
 <br />
 <table class="table table-active">
-    <tr>
+    <tr style="background-color:rgb(252,178,22)">
         <th>ID</th>
         <th>Kategori Adı</th>
         <th>Sil</th>
@@ -27,7 +27,7 @@
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
+        <tr style="background-color: #d4d4d4">
             <td>@item.ID</td>
             <td>@item.AD</td>
             <td>@Html.ActionLink("Sil", "DeleteCategory", new { id = item.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek İstiyor musunuz ?')" })</td>

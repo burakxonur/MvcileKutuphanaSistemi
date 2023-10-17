@@ -23,7 +23,7 @@
 
 
 <table class="table table-active">
-    <tr>
+    <tr style="background-color:rgb(252,178,22)">
         <th>İşlem ID</th>
         <th>Kitap Adı</th>
         <th>Üye</th>
@@ -34,7 +34,7 @@
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
+        <tr style="background-color: #d4d4d4">
             <td>@item.ID</td>
             <td>@item.KITAP1.AD</td>
             <td>@item.UYELER.AD  @item.UYELER.SOYAD</td>

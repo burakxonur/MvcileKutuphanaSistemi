@@ -22,7 +22,7 @@
 <div id="strip">Üye Listesi</div>
 <br />
 <table class="table table-active">
-    <tr>
+    <tr style="background-color:rgb(252,178,22)">
         <th>ID</th>
         <th>Üye Adı</th>
         <th>Üye Soyadı</th>
@@ -36,7 +36,7 @@
     </tr>
     @foreach (var member in Model)
     {
-        <tr>
+        <tr style="background-color: #d4d4d4">
             <td>@member.ID</td>
             <td>@member.AD</td>
             <td>@member.SOYAD</td>

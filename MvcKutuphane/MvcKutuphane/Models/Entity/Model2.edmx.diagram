@@ -21,6 +21,8 @@
         <AssociationConnector Association="MvcKutuphaneModel1.FK_KITAP_KATEGORI" ManuallyRouted="false" />
         <AssociationConnector Association="MvcKutuphaneModel1.FK_KITAP_YAZAR" ManuallyRouted="false" />
         <AssociationConnector Association="MvcKutuphaneModel1.FK_HAREKET_PERSONEL" />
+        <EntityTypeShape EntityType="MvcKutuphaneModel1.HAKKIMIZDA" Width="1.5" PointX="8.375" PointY="6.75" />
+        <EntityTypeShape EntityType="MvcKutuphaneModel1.ILETISIM" Width="1.5" PointX="0.75" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

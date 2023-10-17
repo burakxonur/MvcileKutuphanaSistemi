@@ -34,5 +34,7 @@ namespace MvcKutuphane.Models.Entity
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<UYELER> UYELER { get; set; }
         public virtual DbSet<YAZAR> YAZAR { get; set; }
+        public virtual DbSet<HAKKIMIZDA> HAKKIMIZDA { get; set; }
+        public virtual DbSet<ILETISIM> ILETISIM { get; set; }
     }
 }

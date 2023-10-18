@@ -199,6 +199,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="EnFazlaKitapyAZAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="MvcKutuphaneModel1StoreContainer">
           <EntitySet Name="CEZALAR" EntityType="Self.CEZALAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HAKKIMIZDA" EntityType="Self.HAKKIMIZDA" Schema="dbo" store:Type="Tables" />
@@ -463,6 +464,7 @@
           </AssociationSet>
           <EntitySet Name="HAKKIMIZDA" EntityType="MvcKutuphaneModel1.HAKKIMIZDA" />
           <EntitySet Name="ILETISIM" EntityType="MvcKutuphaneModel1.ILETISIM" />
+          <FunctionImport Name="EnFazlaKitapyAZAR" ReturnType="Collection(String)" />
         </EntityContainer>
         <Association Name="FK_HAREKET_PERSONEL">
           <End Type="MvcKutuphaneModel1.PERSONEL" Role="PERSONEL" Multiplicity="0..1" />
@@ -620,6 +622,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="EnFazlaKitapyAZAR" FunctionName="MvcKutuphaneModel1.Store.EnFazlaKitapyAZAR" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

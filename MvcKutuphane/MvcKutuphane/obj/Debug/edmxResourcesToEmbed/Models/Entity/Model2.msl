@@ -122,5 +122,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="EnFazlaKitapyAZAR" FunctionName="MvcKutuphaneModel1.Store.EnFazlaKitapyAZAR" />
   </EntityContainerMapping>
 </Mapping>

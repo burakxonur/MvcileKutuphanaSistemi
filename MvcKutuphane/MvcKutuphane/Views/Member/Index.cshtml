@@ -27,12 +27,11 @@
         <th>Üye Adı</th>
         <th>Üye Soyadı</th>
         <th>Mail</th>
-        <th>Kullanıcı Adı</th>
-        <th>Şifre</th>
         <th>Telefon</th>
         <th>Okul</th>
         <th>Sil</th>
         <th>Güncelle</th>
+        <th>Geçmiş</th>
     </tr>
     @foreach (var member in Model)
     {
@@ -41,12 +40,11 @@
             <td>@member.AD</td>
             <td>@member.SOYAD</td>
             <td>@member.MAIL</td>
-            <td>@member.KULLANICIADI</td>
-            <td>@member.SIFRE</td>
             <td>@member.TELEFON</td>
             <td>@member.OKUL</td>
             <td>@Html.ActionLink("Sil", "DeleteMember", new { id = member.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek İstiyor musunuz ?')" })</td>
             <td><a href="/Member/UpdateMember/@member.ID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Member/BookHistory/@member.ID" class="btn btn-primary">Geçmiş</a></td>
         </tr>
     }
 </table>

@@ -60,6 +60,7 @@
           </Key>
           <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AD" Type="varchar" MaxLength="50" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="KITAP">
           <Key>
@@ -290,6 +291,7 @@
           <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="KITAP" Relationship="Self.FK_KITAP_KATEGORI" FromRole="KATEGORI" ToRole="KITAP" />
+          <Property Name="DURUM" Type="Boolean" />
         </EntityType>
         <EntityType Name="KITAP">
           <Key>
@@ -539,6 +541,7 @@
           <EntitySetMapping Name="KATEGORI">
             <EntityTypeMapping TypeName="MvcKutuphaneModel1.KATEGORI">
               <MappingFragment StoreEntitySet="KATEGORI">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AD" ColumnName="AD" />
               </MappingFragment>

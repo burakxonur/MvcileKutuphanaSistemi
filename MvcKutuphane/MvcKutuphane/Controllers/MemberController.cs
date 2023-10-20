@@ -59,5 +59,12 @@ namespace MvcKutuphane.Controllers
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
+		public ActionResult BookHistory(int id)
+		{
+			var ktpgecmis = db.HAREKET.Where(x => x.UYE == id).ToList();
+			var uyekit = db.UYELER.Where(y => y.ID == id).Select(z => z.AD + " " + z.SOYAD).FirstOrDefault();
+			ViewBag.uye1 = uyekit;
+			return View(ktpgecmis);
+		}
 	}
 }

@@ -18,6 +18,7 @@
 <br />
 <div id="strip">Yazar Listesi</div>
 <br />
+
 <table class="table table-active">
     <tr style="background-color:rgb(252,178,22)">
         <th>ID</th>
@@ -26,6 +27,7 @@
         <th>Yazar Detayı</th>
         <th>Sil</th>
         <th>Güncelle</th>
+        <th>Kitapları</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -36,6 +38,7 @@
             <td>@item.DETAY</td>
             <td>@Html.ActionLink("Sil", "DeleteWritter", new { id = item.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek İstiyor musunuz ?')" })</td>
             <td><a href="/Writer/UpdateWriter/@item.ID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Writer/MyBook/@item.ID" class="btn btn-primary">Kitapları</a></td>
         </tr>
 
     }

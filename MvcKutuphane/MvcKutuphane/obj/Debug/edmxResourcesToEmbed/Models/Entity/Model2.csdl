@@ -45,6 +45,7 @@
     <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="KITAP" Relationship="Self.FK_KITAP_KATEGORI" FromRole="KATEGORI" ToRole="KITAP" />
+    <Property Name="DURUM" Type="Boolean" />
   </EntityType>
   <EntityType Name="KITAP">
     <Key>

@@ -9,6 +9,7 @@ namespace MvcKutuphane.Controllers
     public class MyPanelController : Controller
     {
         // GET: MyPanel
+       
         public ActionResult Index()
         {
             return View();

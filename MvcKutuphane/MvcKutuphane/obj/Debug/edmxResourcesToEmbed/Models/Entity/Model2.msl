@@ -39,6 +39,7 @@
     <EntitySetMapping Name="KATEGORI">
       <EntityTypeMapping TypeName="MvcKutuphaneModel1.KATEGORI">
         <MappingFragment StoreEntitySet="KATEGORI">
+          <ScalarProperty Name="DURUM" ColumnName="DURUM" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AD" ColumnName="AD" />
         </MappingFragment>

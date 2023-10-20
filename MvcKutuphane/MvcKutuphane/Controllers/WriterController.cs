@@ -1,6 +1,7 @@
 ﻿using MvcKutuphane.Models.Entity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -49,6 +50,12 @@ namespace MvcKutuphane.Controllers
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
-
+		public ActionResult MyBook(int id)
+		{
+			var writer = db.KITAP.Where(x => x.YAZAR == id).ToList();
+			var yzrad = db.YAZAR.Where(y => y.ID == id).Select(z => z.AD + " " + z.SOYAD).FirstOrDefault();
+			ViewBag.yzr = yzrad;
+			return View(writer);
+		}
 	}
 }

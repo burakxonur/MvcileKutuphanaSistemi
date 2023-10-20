@@ -19,14 +19,43 @@ namespace MvcKutuphane.Controllers
 		[HttpGet]
 		public ActionResult Lending()
 		{
+			List<SelectListItem> value1 = (from x in db.UYELER.ToList()
+										   select new SelectListItem
+										   {
+											   Text = x.AD + " " + x.SOYAD,
+											   Value = x.ID.ToString()
+										   }).ToList();
+			ViewBag.dgr1 = value1;
+
+			List<SelectListItem> value2 = (from y in db.KITAP.Where(x => x.DURUM == true).ToList()
+										   select new SelectListItem
+										   {
+											   Text = y.AD,
+											   Value = y.ID.ToString()
+										   }).ToList();
+			ViewBag.dgr2 = value2;
+
+			List<SelectListItem> value3 = (from p in db.PERSONEL.ToList()
+										   select new SelectListItem
+										   {
+											   Text = p.PERSONEL1,
+											   Value = p.ID.ToString()
+										   }).ToList();
+			ViewBag.dgr3 = value3;
 			return View();
 		}
 		[HttpPost]
 		public ActionResult Lending(HAREKET p)
 		{
+			var d1 = db.UYELER.Where(x => x.ID == p.UYELER.ID).FirstOrDefault();
+			var d2 = db.KITAP.Where(y => y.ID == p.KITAP1.ID).FirstOrDefault();
+			var d3 = db.PERSONEL.Where(z => z.ID == p.PERSONEL1.ID).FirstOrDefault();
+			p.UYELER = d1;
+			p.KITAP1 = d2;
+			p.PERSONEL1 = d3;
 			db.HAREKET.Add(p);
 			db.SaveChanges();
-			return RedirectToAction("Lending");
+			return RedirectToAction("Index");
 		}
 		public ActionResult LoanReturn(HAREKET p)
 		{
